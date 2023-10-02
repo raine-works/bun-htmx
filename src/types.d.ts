@@ -1,5 +1,5 @@
 declare global {
-    namespace JSX {
-        interface HtmlTag {}
-    }
+	namespace JSX {
+		interface HtmlTag {}
+	}
 }

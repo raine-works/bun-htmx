@@ -1,21 +1,20 @@
-import { env } from './utils/env';
-import { Elysia } from 'elysia';
-import { html } from '@elysiajs/html';
-import Root from './root';
-import Home, { home } from './pages/home';
+import { env } from './utils/env'
+import { Elysia } from 'elysia'
+import { html } from '@elysiajs/html'
+import { home } from './pages/home'
+import pkg from '../package.json'
 
-const app = new Elysia().use(html());
+const app = new Elysia().use(html())
 
-app.get('/', () => (
-    <Root>
-        <Home />
-    </Root>
-));
+// Register routes
+app.use(home)
 
-app.use(home);
+// Handle errors
+app.onError(({ error }) => {
+	return new Response(error.message)
+})
 
-app.listen(env.PORT, () => {
-    console.log(
-        `App listening at http://${app.server?.hostname}:${app.server?.port}`
-    );
-});
+// Start application server
+app.listen(env.PORT, (srv) => {
+	console.log(`App: http://${srv.hostname}:${srv.port} - Environment: ${env.BUN_ENV} - Version: v${pkg.version}`)
+})

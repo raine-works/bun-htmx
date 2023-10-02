@@ -1,8 +1,8 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
-const envSchema = z.object({
-    BUN_ENV: z.string().nonempty(),
-    PORT: z.string().nonempty()
-});
-
-export const env = envSchema.parse(Bun.env);
+export const env = z
+	.object({
+		BUN_ENV: z.string().nonempty(),
+		PORT: z.string().nonempty()
+	})
+	.parse(Bun.env)
