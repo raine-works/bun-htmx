@@ -3,7 +3,8 @@
     "module": "index.ts",
     "type": "module",
     "scripts": {
-        "dev": "bun run --hot src/app.tsx"
+        "dev": "bun run --hot src/app.tsx",
+        "setup": "rm -rf .env && echo 'PORT=3000' >> .env"
     },
     "devDependencies": {
         "@flydotio/dockerfile": "latest",
