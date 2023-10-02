@@ -1,0 +1,22 @@
+{
+    "name": "bun-htmx",
+    "module": "index.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "bun run --hot src/app.tsx"
+    },
+    "devDependencies": {
+        "@flydotio/dockerfile": "latest",
+        "@kitajs/html": "latest",
+        "bun-types": "latest",
+        "zod": "^3.22.2"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@elysiajs/html": "latest",
+        "@elysiajs/static": "^0.6.0",
+        "elysia": "latest"
+    }
+}
