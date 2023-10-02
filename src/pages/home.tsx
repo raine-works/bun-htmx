@@ -28,8 +28,6 @@ export const home = new Elysia().use(html()).get('/', () => (
 	</Root>
 ))
 
-home.get('/hello', () => <h1>Hello World!</h1>)
-
 home.post(
 	'/api/submit',
 	({ body }) => {
