@@ -6,7 +6,14 @@ export const home = new Elysia().use(html()).get('/', () => (
 	<Root>
 		<div class="h-screen flex justify-center items-center">
 			<div class="p-10 rounded-lg bg-gray-300">
-				<form id="form" hx-post="/api/submit" hx-target="#form" hx-swap="outerHTML" class="flex flex-col">
+				<form
+					id="form"
+					hx-post="/api/submit"
+					hx-target="#form"
+					hx-swap="outerHTML"
+					hx-indicator="#spinner"
+					class="flex flex-col"
+				>
 					<input
 						type="text"
 						required="true"
@@ -21,7 +28,10 @@ export const home = new Elysia().use(html()).get('/', () => (
 						placeholder="Last Name"
 						class="py-2 px-4 rounded-lg mb-2"
 					/>
-					<button class="py-2 px-4 bg-blue-800 rounded-lg text-white">Submit</button>
+					<button class="py-2 px-4 border-3 border-gray-800 rounded-lg text-gray-800 font-bold flex justify-center">
+						Submit
+						<img id="spinner" class="htmx-indicator h-6 ml-2" src="https://htmx.org/img/bars.svg" />
+					</button>
 				</form>
 			</div>
 		</div>
@@ -30,7 +40,8 @@ export const home = new Elysia().use(html()).get('/', () => (
 
 home.post(
 	'/api/submit',
-	({ body }) => {
+	async ({ body }) => {
+		await Bun.sleep(3000)
 		console.log(body)
 		return (
 			<>

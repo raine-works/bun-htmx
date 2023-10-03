@@ -12,6 +12,7 @@ export default ({ children }: PropsWithChildren) => {
 				<script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
 				<script src="https://unpkg.com/htmx.org/dist/ext/preload.js"></script>
 				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"></link>
+				<link rel="stylesheet" href="style.css"></link>
 				<script>htmx.config.globalViewTransitions = true;</script>
 			</head>
 			{children}
