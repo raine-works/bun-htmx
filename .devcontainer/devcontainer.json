@@ -12,9 +12,6 @@
 		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind",
 		"source=${env:HOME}${env:USERPROFILE}/.config/gh,target=/home/vscode/.config/gh,type=bind"
 	],
-	"containerEnv": {
-		"BUN_ENV": "development"
-	},
 	"features": {
 		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
