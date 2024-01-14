@@ -3,16 +3,20 @@
 	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 	"postAttachCommand": "git config --global diff.tool ...",
 	"postStartCommand": "bash .devcontainer/scripts/post-start.sh",
+	"initializeCommand": "echo starting container...",
 	"forwardPorts": [3000],
 	"otherPortsAttributes": {
 		"onAutoForward": "ignore"
 	},
-	"mounts": ["source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind"],
+	"mounts": [
+		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind",
+		"source=${env:HOME}${env:USERPROFILE}/.config/gh,target=/home/vscode/.config/gh,type=bind"
+	],
 	"containerEnv": {
 		"BUN_ENV": "development"
 	},
 	"features": {
-		"ghcr.io/devcontainers/features/github-cli:1": {}
+		"github-cli": "latest"
 	},
 	"customizations": {
 		"vscode": {
